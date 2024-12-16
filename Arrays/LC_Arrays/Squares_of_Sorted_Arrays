@@ -1,0 +1,42 @@
+#Input, an array from smallest to largest
+#Output: an array from smallest ot largest
+#Task: square each number, return a sorted array
+
+#steps:1. Brute force: fro each element, square it, 
+# then go through the new sorted array sorting it.
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        #steps:1. Brute force: fro each element, square it,
+        squared = []
+        for i in nums:
+            i = i * i
+            squared.append(i)
+        # then go through the new sorted array sorting it.
+        squared.sort()
+
+        return squared
+
+#Time is O(n) + O(n log n) = O(n logn )
+#Space is O(n)
+
+#other way
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        #steps:2. optimized to avoid sorting again
+        #have two pointers, if the abs(right) > abs(left) process right first
+        #advance both pointers
+        #note, you cna only have the two greatest values at the end but you can always get a smaller one in the middle
+        n = len(nums)
+        result = [0] * len(nums)
+        left = 0
+        right = n-1
+
+        for i in range(n-1, -1, -1):
+            if abs(nums[left]) > abs(nums[right]):
+                val = nums[left]
+                left +=1
+            else:
+                val = nums[right]
+                right -=1
+            result[i]= val*val
+        return result

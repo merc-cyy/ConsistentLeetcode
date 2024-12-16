@@ -5,7 +5,7 @@ a = [1,2,3,4,5]
 # you can create a vector of each character using list() on any tuple or string
 a = "apple"  #['a', 'p', 'p', 'l', 'e']
 b = (list(a))  #['a', 'p', 'p', 'l', 'e']
-
+m = [1,2,3,4,5]
 #INITIALIZATION
 c = ["f"] * 7
 print(c) #['f', 'f', 'f', 'f', 'f', 'f', 'f']
@@ -13,13 +13,17 @@ print(c) #['f', 'f', 'f', 'f', 'f', 'f', 'f']
 #INDEXING
 print(b[0])#a
 print(b[-1]) #e negative indexing starts from the back so it wraps
+print(m[2:])#[345]
+# k[startidx:endidx_exclusive:step]
+# omission of startidx or endidx means from idx 0(start) or to the end of the list(end)
+# negative idxing starts at the back so using -3 accesses the third-last, -2 second last and a step value of -1 means reversing stepping
 
 #FUCNTIONS
 b.append(12)#adds at the end == ['a', 'p', 'p', 'l', 'e', 12]
 print(b)
 b.extend([12,13,14])#adds mutliple elements at the end == ['a', 'p', 'p', 'l', 'e', 12, 12, 13, 14]
 print(b)
-print(b.insert(1,100))#inserts at a specific index == ['a', 100, 'p', 'p', 'l', 'e', 12, 12, 13, 14]
+print(b.insert(1,100))#inserts at a specific index == ['a', 100, 'p', 'p', 'l', 'e', 12, 12, 13, 14]-O(n) time
 print(b)
 
 #INSERTION V DELETION o(n)

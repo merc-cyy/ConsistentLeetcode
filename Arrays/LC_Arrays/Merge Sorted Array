@@ -1,0 +1,38 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        #understand: input: nums1, nums2, m n
+        #output;none
+        #goal: nums1-- both nums1 and nums2 in increasing order
+        """ 
+        two pointers: n1 --> m - 1 index, n2 -- n -1 index
+        while n1 >= 0 and n2 >=0 
+            if nums1[n1] >= nums2[n2] 
+                nums1[n1 + n2 + 1] = nums1[n1]
+                n1 -= 1
+            else:
+                nums1[n1 + n2 + 1] = nums2[n2]
+                n2 -= 1
+
+        """
+
+        n1 = m -1#last index of nums1
+        n2 = n - 1#last index of nums2
+        while n1 >= -1 and n2 >= 0:#while both indides are valid
+            if n1 == -1:#for the case when n1 has fallen out
+                nums1[n1+n2+1] = nums2[n2]#populate with n2
+                n2 -= 1
+            elif nums1[n1] >= nums2[n2]:#normal case, just compare and swap
+                nums1[n1+n2+1] = nums1[n1]
+                n1 -= 1
+            else:
+                nums1[n1+n2+1] = nums2[n2]
+                n2 -= 1
+
+        return
+    
+
+    def merge2(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        
