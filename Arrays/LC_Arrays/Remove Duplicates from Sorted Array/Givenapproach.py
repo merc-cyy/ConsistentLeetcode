@@ -16,3 +16,4 @@ class Solution:
                 unique_index += 1
 
         return unique_index
+

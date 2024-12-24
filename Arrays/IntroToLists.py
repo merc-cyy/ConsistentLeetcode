@@ -171,9 +171,63 @@ print(b)
 
 
 #LIST COMPREHENSION
-#Template: [expression for item in iterable if condition]
+#Template: value_if_true if condition else value_if_false
+a, b = [10, 20]
+max_value = a if a > b else b
+# normal conditional syntax
+if a > b:
+    max_value = a
+else: 
+    max_value = b
+
+
+#Template: [new_list_value for item in existing_list]
 a = [1, 2, 3, 4, 5]
-
 res = [val * 2 for val in a]
-
 print(res)
+
+#Expanded
+#[new_list_value for item in existing_list if condition]
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+squared_numbers = [num**2 for num in numbers if num < 5 ]
+print(squared_numbers) # Prints: [1, 4, 9, 16]
+
+#Dictionary comprehenison
+#Note the use of {} instead of [] in the comprehension
+#{key_expression: value_expression for item in iterable if condition}
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+squared_dict = { num : num **2 for num in numbers if num < 5}
+print(squared_dict) # Prints {1: 1, 2: 4, 3: 9, 4: 16}
+
+# For loop syntax
+squared_dict = {}
+for num in numbers:
+    if num < 5:
+        squared_dict[num] = num ** 2
+print(squared_dict) # Prints {1: 1, 2: 4, 3: 9, 4: 16}
+
+
+
+"""
+Unpacking
+Unpacking is a method of assigning multiple variables at once, commonly used with the 2-pointer approach.
+
+To assign multiple variables at once, we can use the following syntax to assign the value 1 to a and the value 2 to b:
+
+a, b = 1, 2
+
+If there is an incorrect number of variables for the values given, a ValueError will be thrown. This can be applied to when swapping values (as seen in the Beginning and End 2-Pointer Approach):
+
+pointer_one, pointer_two = pointer_two, pointer_one
+
+Note that this swaps the index each pointer points to, and not the value. To swap values in a list, we would use:
+
+nums[pointer_one], nums[pointer_two] = nums[pointer_two], nums[pointer_one]
+
+Unpacking is not limited to one data type. It also works with strings, and we can even assign multiple values from a list of strings:
+
+inventory = [["apples", 3], ["carrots", 5]]
+[[item, quantity], [item2, quantity2]] = inventory
+# [item, quantity] << ["apples", 3]
+# [item2, quantity2] << ["carrots", 5]
+"""
