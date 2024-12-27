@@ -19,6 +19,10 @@ class Solution:
 """
 so basically how this sliding window works is that for each ch, it adds it to a set where the value is the index after it(to jump duplicates)
 if the ch is not in the dict:
-add it and the index after, check length of substring 
+add it and the index after, check length of substring (keep the max)
+if the ch is in the dict:
+move the left ptr to the max(left, value_of_that_ch) this is to ensure if a value is repeated, you jump up to the index after the occurence and NEVER move back in case the ch is at the start. this removes the need to keep removing characters from the set
+
+
 
 """
