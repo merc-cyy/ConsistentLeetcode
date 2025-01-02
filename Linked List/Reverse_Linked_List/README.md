@@ -44,6 +44,7 @@ prev is null, curr is 1; save curr.next to temp(null); set curr.next to prev and
 return prev(1)
 
 EDGE: two nodes, a large list(running out of space); duplicate values;
+COMPLEXITY: Time is O(n), Space O(1)
 
 
 Algorithm 2:
@@ -73,6 +74,8 @@ Base case if head is none, return none
 EDGE: 1->#
 call function on each node and last call ends with newhead as 1(only recursive function)
 pop from the stack and now head is 5; since head.next is none, that call to head.next.next doesn't run and you just return the newhead which is just 1
+
+COMPLEXITY: Time: O(n), Space: O(n) the depth of the recursive stack
 
 
 
