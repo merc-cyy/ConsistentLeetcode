@@ -21,8 +21,13 @@ Iterable Both strings and lists are iterable meaning we can loop over them using
 Length We can use the len() function to get the length of either a string or list
 """
 
-#The // operator is also known as floor division. x // y returns the result of x divided by y rounded down to the nearest whole integer.
+#The // operator does int division is also known as floor division. x // y returns the result of x divided by y rounded down to the nearest whole integer.
 print(5 // 2) # Prints 2 because 5 / 2 = 2.5 which rounded down is 2
+print( 6 // 2) #3
+#/ does float division
+print(7 / 2)   # Output: 3.5
+print(6 / 3)   # Output: 2.0
+
 
 abs(x) #Returns the absolute value of a given number. The absolute value of a number is the distance of that number from 0.
 
