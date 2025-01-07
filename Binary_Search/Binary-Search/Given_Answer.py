@@ -1,65 +1,24 @@
-#Recursive Binary Search
-class Solution:
-    def binary_search(self, l: int, r: int, nums: List[int], target: int) -> int:
-        if l > r:
-            return -1
-        m = l + (r - l) // 2
-        
-        if nums[m] == target:
-            return m
-        if nums[m] < target:
-            return self.binary_search(m + 1, r, nums, target)
-        return self.binary_search(l, m - 1, nums, target)
-
-    def search(self, nums: List[int], target: int) -> int:
-        return self.binary_search(0, len(nums) - 1, nums, target)
-    
-#Iterative Binary Search
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        l, r = 0, len(nums) - 1
+        #input: a sorted array, target
+        #output: index of target else -1
+        #goal: binary search
+        #task: do binary search
 
-        while l <= r:
-            # (l + r) // 2 can lead to overflow
-            m = l + ((r - l) // 2)  
+        #approach: go to the midway, if smaller, check the right side, if larger, check the left side
 
-            if nums[m] > target:
-                r = m - 1
-            elif nums[m] < target:
+        l = 0
+        r = len(nums) - 1
+
+        while l <= r:#equal to because if they are equal to we haven't checked the number yet
+            m = (l + r) // 2#int division
+            val = nums[m]
+            if val < target:#check the right side
                 l = m + 1
-            else:
+            elif val > target:
+                r = m -1
+            else:#equal
                 return m
-        return -1
-    
-#Upper Bound
-class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        l, r = 0, len(nums)
 
-        while l < r:
-            m = l + ((r - l) // 2)  
-            if nums[m] > target:
-                r = m
-            elif nums[m] <= target:
-                l = m + 1
-        return l - 1 if (l and nums[l - 1] == target) else -1
-    
-#Lower Bound
-class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        l, r = 0, len(nums)
-
-        while l < r:
-            m = l + ((r - l) // 2)  
-            if nums[m] >= target:
-                r = m
-            elif nums[m] < target:
-                l = m + 1
-        return l if (l < len(nums) and nums[l] == target) else -1
-    
-#Import function
-import bisect
-class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        index = bisect.bisect_left(nums, target)
-        return index if index < len(nums) and nums[index] == target else -1
+        return -1#not found
+        
