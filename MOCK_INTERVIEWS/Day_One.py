@@ -1,17 +1,26 @@
 """
+The awards committee of your alma mater (i.e. your college/university) asked for your assistance with a budget allocation problem they’re facing. Originally, the committee planned to give N research grants this year. However, due to spending cutbacks, the budget was reduced to newBudget dollars and now they need to reallocate the grants. The committee made a decision that they’d like to impact as few grant recipients as possible by applying a maximum cap on all grants. Every grant initially planned to be higher than cap will now be exactly cap dollars. Grants less or equal to cap, obviously, won’t be impacted.
 
-Implement a regular expression function isMatch that supports the '.' and '*' symbols. 
-The function receives two strings - text and pattern - and should return true if the text matches the pattern as a regular expression. 
-For simplicity, assume that the actual symbols '.' and '*' do not appear in the text string and are used as special symbols only in the pattern string.
+Given an array grantsArray of the original grants and the reduced budget newBudget, write a function findGrantsCap that finds in the most efficient manner a cap such that the least number of recipients is impacted and that the new budget constraint is met (i.e. sum of the N reallocated grants equals to newBudget).
 
-In case you aren't familiar with regular expressions, the function determines if the text and pattern are the equal, where the '.' is treated as a single a character wildcard (see third example), and '*' is matched for a zero or more sequence of the previous letter (see fourth and fifth examples). For more information on regular expression matching, see the Regular Expression Wikipedia page.
+Analyze the time and space complexities of your solution.
 
-Explain your algorithm, and analyze its time and space complexities.
+Example:
 
-"""
+input:  grantsArray = [2, 100, 50, 120, 1000], newBudget = 190
 
-"""
-Input: text is text, and .any single character  and *zero or more occurrences of the preceding character
+output: 47 # and given this cap the new grants array would be
+           # [2, 47, 47, 47, 47]. Notice that the sum of the
+           # new grants is indeed 190
+Constraints:
 
+[time limit] 5000ms
 
+[input] array.double grantsArray
+
+0 ≤ grantsArray.length ≤ 20
+0 ≤ grantsArray[i]
+[input] double newBudget
+
+[output] double
 """
